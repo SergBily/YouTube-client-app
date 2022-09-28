@@ -5,7 +5,7 @@ import SearchItemComponent from './components/search/search-item/search-item.com
 import SearchResultsComponent from './components/search/search-results/search-results.component';
 import FilterComponent from './components/filter/filter.component';
 import CoreModule from '../core/core.module';
-import { DetailedComponent } from './pages/detailed/detailed.component';
+import DetailedComponent from './pages/detailed/detailed.component';
 
 @NgModule({
   declarations: [

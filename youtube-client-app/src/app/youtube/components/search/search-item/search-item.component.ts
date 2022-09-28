@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import ItemResponse from 'src/app/models/search-item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-item.component.scss'],
 })
 export default class SearchItemComponent {
+  itemResult!: ItemResponse;
 }
