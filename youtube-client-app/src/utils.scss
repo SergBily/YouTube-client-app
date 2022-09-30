@@ -1,0 +1,27 @@
+$bgMain: #E5E5E5;
+$btnMain: #2F80ED;
+$btnMainActiv: #5EA2FF;
+$btnMainDisable: #B1B1B1;
+$white: #FFFFFF;
+$bgInput: #EFEFEF;
+$LoginColor: #4F4F4F;
+$placeholderColor: #929292;
+
+@mixin wh ($width: 100%, $height: auto){
+  width: $width;
+  height: $height;
+}
+
+@mixin flex ($flex: flex, $justify-content: space-between, $align-items: center){
+  display: $flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin font ($font-family: 'Roboto', $font-style: normal, $font-weight: 400, $font-size: 16px, $line-height: 14px){
+  font-family: $font-family;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+}

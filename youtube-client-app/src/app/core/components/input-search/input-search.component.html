@@ -1,0 +1,13 @@
+<div class="input__container">
+  <input
+    class="input"
+    matInput
+    type="text"
+    [(ngModel)]="value"
+    autofocus
+    placeholder="What are you want to find out?"
+  />
+  <button class="button" *ngIf="value" (click)="value = ''">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

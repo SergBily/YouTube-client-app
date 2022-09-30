@@ -1,0 +1,31 @@
+@import '../../../../utils.scss';
+
+.input__container {
+  @include wh(396px, 24px);
+  position: relative;
+}
+
+.input {
+  @include wh();
+  @include font($font-size: 1.2rem);
+  padding: 0 0 0 15px;
+  border: 0;
+  outline: 0;
+  background-color: $bgInput;
+
+  &::placeholder {
+    @include font($font-size: 0.8rem);
+    color: $placeholderColor;
+  }
+}
+
+.button {
+  @include flex();
+  position: absolute;
+  height: 24px;
+  top: 0;
+  right: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
