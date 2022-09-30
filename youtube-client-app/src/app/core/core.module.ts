@@ -7,12 +7,14 @@ import { MatButtonModule } from '@angular/material/button';
 import HeaderComponent from './components/header/header.component';
 import NotFoundComponent from './pages/not-found/not-found.component';
 import InputSearchComponent from './components/input-search/input-search.component';
+import FilterComponent from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NotFoundComponent,
     InputSearchComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,

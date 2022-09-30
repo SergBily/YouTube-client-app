@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <section class="filter">
+    <div class="filter__container">
+      <p class="filter__title">Sorting by:</p>
+      <button
+        class="filter__date btn"
+        (click)="
+          isArrowData = !isArrowData;
+          openSortData = true;
+          openSortCount = false;
+          isArrowCount = false
+        "
+      >
+        <span>data</span>
+        <div *ngIf="openSortData">
+          <mat-icon *ngIf="isArrowData; else down" class="arrow-up arrow"
+            >arrow_upward</mat-icon
+          >
+        </div>
+      </button>
+      <button
+        class="filter__count btn"
+        (click)="
+          isArrowCount = !isArrowCount;
+          openSortCount = true;
+          openSortData = false;
+          isArrowData = false
+        "
+      >
+        <span>count of views</span>
+        <div *ngIf="openSortCount">
+          <mat-icon *ngIf="isArrowCount; else down" class="arrow-up arrow"
+            >arrow_upward</mat-icon
+          >
+        </div>
+      </button>
+      <button class="filter__word btn">
+        <span>by word or sentance</span>
+      </button>
+      <input class="input" type="text" [(ngModel)]="searhOfWord" />
+    </div>
+  </section>
+</div>
+<ng-template #down>
+  <mat-icon class="arrow-down arrow">arrow_downward</mat-icon>
+</ng-template>

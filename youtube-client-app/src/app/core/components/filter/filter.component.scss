@@ -1,0 +1,61 @@
+@import '../../../../utils.scss';
+
+.wrapper {
+  @include wh();
+  background-color: $bgMain;
+
+  .filter {
+    @include flex($justify-content: center);
+    position: relative;
+    max-width: 1440px;
+    height: 50px;
+    margin: 0 auto;
+
+      .filter__container {
+        @include flex($justify-content: space-between);
+        @include wh(520px, 16px);
+
+        .filter__title {
+          @include font($font-size: 12px);
+          margin: 0;
+          color: $placeholderColor;
+        }
+
+        .btn {
+          @include font($font-size: 12px);
+          color: $btnMain;
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        .filter__date {
+          @include wh(34px);
+        }
+
+        .filter__count {
+          @include wh(88px);
+        }
+
+        .filter__date,
+        .filter__count {
+          position: relative;
+          text-decoration: underline;
+
+
+            .arrow-up,
+            .arrow-down {
+              position: absolute;
+              top: 2px;
+              right: -13px;
+              font-size: 12px;
+            }
+        }
+
+        .input {
+          border: 0;
+          outline: 0;
+        }
+      }
+  }
+}
