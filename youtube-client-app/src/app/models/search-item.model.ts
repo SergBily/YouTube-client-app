@@ -7,7 +7,7 @@ export default interface ItemResponse {
 }
 
 interface SnippetItem {
-  publishedAT: string,
+  publishedAt: string,
   channelId: string,
   title: string,
   description: string,
