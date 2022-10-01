@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import SearchResponse from 'src/app/models/search-response.model';
+import CardsService from 'src/app/core/services/cards.service';
+import ItemResponse from 'src/app/models/search-item.model';
 
 @Component({
   selector: 'app-search-results',
@@ -7,5 +8,9 @@ import SearchResponse from 'src/app/models/search-response.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export default class SearchResultsComponent {
-  searhResult!: SearchResponse;
+  cards!: ItemResponse[];
+
+  constructor(private cardsService: CardsService) {
+    this.cards = this.cardsService.getCards().items;
+  }
 }

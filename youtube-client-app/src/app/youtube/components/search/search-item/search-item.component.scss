@@ -1,8 +1,9 @@
 @import '../../../../../utils.scss';
 
 .card {
-  @include wh(330px,327px);
+  @include wh(263px, 327px);
   @include flex();
+  padding: 20px 0 10px 0;
   flex-direction: column;
   background-color: $bgMain;
   border-radius: 5px;
@@ -12,21 +13,28 @@
   -o-border-radius: 5px;
   box-shadow: 2px 1px 8px black;
 
+    .container {
+      @include flex();
+      @include wh(inherit, 161px);
+      flex-direction: column;
+    }
+
     .card__statistics {
-      @include wh(202px, 18px);
+      @include wh(202px, 20px);
       @include flex();
 
         .block {
           @include flex();
 
             .view__count {
-              @include font($font-size: 10px, $line-height: 12px)
+              @include font($font-size: 10px, $line-height: 12px);
+              padding-bottom: 5px
             }
         }
      }
 
      .card__title {
-      @include wh(263px);
+      @include wh(223px);
       @include font($font-size: 20px, $line-height: 23px, $font-weight: 700);
       margin: 0;
       color: $LoginColor;
