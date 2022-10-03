@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import CardsService from '../../services/cards.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +8,9 @@ import CardsService from '../../services/cards.service';
 export default class HeaderComponent implements OnInit {
   loginName = 'Your Name';
 
-  constructor(private cardsService: CardsService) { }
+  toggleSettings = false;
+
+  constructor() { }
 
   ngOnInit(): void {
 

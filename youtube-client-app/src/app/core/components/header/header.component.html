@@ -4,7 +4,7 @@
       <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
       <app-input-search></app-input-search>
       <button class="btn__search" mat-raised-button>search</button>
-      <button class="btn__settings">
+      <button class="btn__settings" (click)="toggleSettings = !toggleSettings">
         <svg-icon-sprite
           [src]="'settings'"
           [title]="'settings'"
@@ -31,4 +31,4 @@
     </svg>
   </header>
 </div>
-<app-filter></app-filter>
+<app-filter *ngIf="toggleSettings"></app-filter>
