@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export default class FilterComponent {
+export default class FilterComponent implements OnInit {
   isArrowData = false;
 
   isArrowCount = false;
@@ -15,4 +15,10 @@ export default class FilterComponent {
   openSortCount = false;
 
   searhOfWord = '';
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
 }

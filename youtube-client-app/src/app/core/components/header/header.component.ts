@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import CardsService from '../../services/cards.service';
 
 @Component({
@@ -6,12 +6,12 @@ import CardsService from '../../services/cards.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export default class HeaderComponent {
+export default class HeaderComponent implements OnInit {
   loginName = 'Your Name';
 
   constructor(private cardsService: CardsService) { }
 
-  data() {
-    console.log(typeof this.cardsService.getCards());
+  ngOnInit(): void {
+
   }
 }

@@ -21,8 +21,11 @@
         "airbnb-typescript/base"
       ],
       "rules": {
-        "no-console": ["error", { "allow": ["error", "log"] }],
+        "no-console": ["error", { "allow": ["error"] }],
         "class-methods-use-this": "off",
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-useless-constructor": 0,
+        "@angular-eslint/no-empty-lifecycle-method": 0,
         "@angular-eslint/directive-selector": [
           "error",
           {
