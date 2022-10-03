@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit,
+} from '@angular/core';
+import CardsService from '../../services/cards.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +13,14 @@ export default class HeaderComponent implements OnInit {
 
   toggleSettings = false;
 
-  constructor() { }
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
 
+  }
+
+  getResult(value: string): void {
+    this.cardsService.getCards();
+    this.cardsService.searchValue = value;
   }
 }

@@ -2,8 +2,8 @@
   <header class="header">
     <div class="search__container">
       <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
-      <app-input-search></app-input-search>
-      <button class="btn__search" mat-raised-button>search</button>
+      <app-input-search #searh></app-input-search>
+      <button class="btn__search" mat-raised-button (click)="getResult(searh.value)">search</button>
       <button class="btn__settings" (click)="toggleSettings = !toggleSettings">
         <svg-icon-sprite
           [src]="'settings'"

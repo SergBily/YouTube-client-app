@@ -1,5 +1,5 @@
 <div class="wrapper">
   <div class="cards__container" >
-    <app-search-item *ngFor="let card of cards" [card]="card"></app-search-item>
+    <app-search-item *ngFor="let card of cardsService.searchResult?.items" [card]="card"></app-search-item>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import CardsService from 'src/app/core/services/cards.service';
 
 @Component({
   selector: 'app-main',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export default class MainComponent implements OnInit {
-  constructor() { }
+  constructor(public cardsService: CardsService) { }
 
   ngOnInit(): void {
 
