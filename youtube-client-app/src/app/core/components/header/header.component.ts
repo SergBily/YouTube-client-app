@@ -1,7 +1,7 @@
 import {
   Component, OnInit,
 } from '@angular/core';
-import CardsService from '../../services/cards.service';
+import CardsService from '../../services/data/cards.service';
 
 @Component({
   selector: 'app-header',
@@ -19,8 +19,7 @@ export default class HeaderComponent implements OnInit {
 
   }
 
-  getResult(value: string): void {
+  getResult(): void {
     this.cardsService.getCards();
-    this.cardsService.searchValue = value;
   }
 }

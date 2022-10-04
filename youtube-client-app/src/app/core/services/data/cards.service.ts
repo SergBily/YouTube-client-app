@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import SearchResponse from 'src/app/models/search-response.model';
-import mocksData from '../../../mocks/card.mock.json';
+import SearchResponse from 'src/app/shared/models/search-response.model';
+import mocksData from '../../../../mocks/card.mock.json';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import mocksData from '../../../mocks/card.mock.json';
 export default class CardsService {
   searchResult!: SearchResponse;
 
-  searchValue!: string;
+  constructor() {}
 
   getCards() {
     this.searchResult = mocksData;

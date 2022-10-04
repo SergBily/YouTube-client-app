@@ -8,7 +8,9 @@
           isArrowData = !isArrowData;
           openSortData = true;
           openSortCount = false;
-          isArrowCount = false
+          isArrowCount = false;
+          searhOfWord = '';
+          toggleSortService.kindOfSort = isArrowData ? 'dataUp' : 'dataDown'
         "
       >
         <span>data</span>
@@ -24,7 +26,9 @@
           isArrowCount = !isArrowCount;
           openSortCount = true;
           openSortData = false;
-          isArrowData = false
+          isArrowData = false;
+          searhOfWord = '';
+          toggleSortService.kindOfSort = isArrowCount ? 'countUp' : 'countDown'
         "
       >
         <span>count of views</span>
@@ -34,7 +38,14 @@
           >
         </div>
       </button>
-      <button class="filter__word btn">
+      <button
+        class="filter__word btn"
+        (click)="
+          toggleSortService.kindOfSort = searhOfWord;
+          openSortCount = false;
+          openSortData = false
+        "
+      >
         <span>by word or sentance</span>
       </button>
       <input class="input" type="text" [(ngModel)]="searhOfWord" />

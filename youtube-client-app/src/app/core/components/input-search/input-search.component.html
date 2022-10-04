@@ -7,7 +7,7 @@
     autofocus
     placeholder="What are you want to find out?"
   />
-  <button class="button" *ngIf="value">
+  <button class="button" *ngIf="value" (click)="value = ''">
     <mat-icon>close</mat-icon>
   </button>
 </div>

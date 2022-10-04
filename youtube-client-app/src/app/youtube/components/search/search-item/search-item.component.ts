@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import ItemResponse from 'src/app/models/search-item.model';
+import ItemResponse from 'src/app/shared/models/search-item.model';
 
 @Component({
   selector: 'app-search-item',

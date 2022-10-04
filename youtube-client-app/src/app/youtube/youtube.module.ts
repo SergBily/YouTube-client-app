@@ -7,6 +7,7 @@ import SearchItemComponent from './components/search/search-item/search-item.com
 import SearchResultsComponent from './components/search/search-results/search-results.component';
 import CoreModule from '../core/core.module';
 import DetailedComponent from './pages/detailed/detailed.component';
+import FiltersPipe from './pipes/filters/filters.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import DetailedComponent from './pages/detailed/detailed.component';
     SearchItemComponent,
     SearchResultsComponent,
     DetailedComponent,
+    FiltersPipe,
   ],
   imports: [
     CommonModule,

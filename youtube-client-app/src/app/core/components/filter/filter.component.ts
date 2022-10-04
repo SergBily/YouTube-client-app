@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ToggleSortService from '../../services/filter/toggle-sort.service';
 
 @Component({
   selector: 'app-filter',
@@ -16,7 +17,7 @@ export default class FilterComponent implements OnInit {
 
   searhOfWord = '';
 
-  constructor() { }
+  constructor(public toggleSortService: ToggleSortService) { }
 
   ngOnInit(): void {
 

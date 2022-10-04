@@ -1,5 +1,11 @@
 <div class="wrapper">
-  <div class="cards__container" >
-    <app-search-item *ngFor="let card of cardsService.searchResult?.items" [card]="card"></app-search-item>
+  <div class="cards__container">
+    <app-search-item
+      *ngFor="
+        let card of cardsService.searchResult.items
+          | filters: toggleSortService.kindOfSort
+      "
+      [card]="card"
+    ></app-search-item>
   </div>
 </div>
