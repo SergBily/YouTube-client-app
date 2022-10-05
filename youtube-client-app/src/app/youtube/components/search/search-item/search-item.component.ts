@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import ItemResponse from 'src/app/shared/models/search-item.model';
+import { Component, OnInit } from '@angular/core';
+import CardsService from 'src/app/core/services/data/cards.service';
+import ToggleSortService from 'src/app/core/services/filter/toggle-sort.service';
 
 @Component({
   selector: 'app-search-item',
@@ -7,9 +8,7 @@ import ItemResponse from 'src/app/shared/models/search-item.model';
   styleUrls: ['./search-item.component.scss'],
 })
 export default class SearchItemComponent implements OnInit {
-  @Input() card!: ItemResponse;
-
-  constructor() { }
+  constructor(public cardsService: CardsService, public toggleSortService: ToggleSortService) { }
 
   ngOnInit(): void {
 

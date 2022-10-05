@@ -1,4 +1,10 @@
-<div class="card">
+<div
+  class="card"
+  *ngFor="
+    let card of cardsService.searchResult.items
+      | filters: toggleSortService.kindOfSort
+  "
+>
   <div class="container">
     <img
       [src]="card.snippet.thumbnails.medium.url"
