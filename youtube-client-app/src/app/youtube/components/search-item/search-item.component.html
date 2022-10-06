@@ -58,4 +58,5 @@
   </div>
   <h2 class="card__title">{{ card.snippet.title }}</h2>
   <button class="card__btn" mat-raised-button>more...</button>
+  <div [appHighlight]="card.snippet.publishedAt" class="card__highlight"></div>
 </div>
