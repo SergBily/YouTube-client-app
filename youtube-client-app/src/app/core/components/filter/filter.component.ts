@@ -33,4 +33,12 @@ export default class FilterComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  protected closeIconSort(): void {
+    if (this.searhOfWord.trim()) {
+      this.openSortCount = false;
+      this.openSortData = false;
+      this.toggleSortService.kindOfSort = this.searhOfWord;
+    }
+  }
 }

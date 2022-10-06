@@ -38,14 +38,7 @@
           >
         </ng-container>
       </button>
-      <button
-        class="filter__word btn"
-        (click)="
-          toggleSortService.kindOfSort = searhOfWord;
-          openSortCount = false;
-          openSortData = false
-        "
-      >
+      <button class="filter__word btn" (click)="closeIconSort()">
         <span>by word or sentance</span>
       </button>
       <input class="input" type="text" [(ngModel)]="searhOfWord" />
