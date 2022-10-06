@@ -1,6 +1,7 @@
 import {
   Directive, ElementRef, Input, OnInit,
 } from '@angular/core';
+import HighLightEnum from 'src/app/shared/models/highlight.enum';
 
 @Directive({
   selector: '[appHighlight]',
@@ -26,13 +27,13 @@ export default class HighlightDirective implements OnInit {
     this.count = Math.trunc((Date.now() - Date.parse(this.appHighlight)) / this.day);
 
     if (this.count < this.week) {
-      this.color = 'blue';
+      this.color = HighLightEnum.blue;
     } else if (this.count < this.month) {
-      this.color = 'green';
+      this.color = HighLightEnum.green;
     } else if (this.count < this.halfYear) {
-      this.color = 'yellow';
+      this.color = HighLightEnum.yellow;
     } else {
-      this.color = 'red';
+      this.color = HighLightEnum.red;
     }
 
     this.el.nativeElement.style.backgroundColor = this.color;

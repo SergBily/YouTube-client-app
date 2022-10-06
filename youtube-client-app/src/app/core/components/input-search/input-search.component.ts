@@ -9,7 +9,7 @@ import {
 
 })
 export default class InputSearchComponent implements OnInit {
-  value = '';
+  value!: string;
 
   constructor() { }
 

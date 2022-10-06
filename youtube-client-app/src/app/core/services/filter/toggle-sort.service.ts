@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export default class ToggleSortService {
-  kindOfSort: string = '';
+  kindOfSort!: string;
 
   constructor() { }
 }

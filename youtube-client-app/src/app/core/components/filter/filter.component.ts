@@ -26,7 +26,7 @@ export default class FilterComponent implements OnInit {
 
   openSortCount = false;
 
-  searhOfWord = '';
+  searhOfWord!: string;
 
   constructor(public toggleSortService: ToggleSortService) { }
 

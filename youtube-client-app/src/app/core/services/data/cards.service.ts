@@ -10,7 +10,7 @@ export default class CardsService {
 
   constructor() {}
 
-  getCards() {
+  public getCards(): void {
     this.searchResult = mocksData;
   }
 }
