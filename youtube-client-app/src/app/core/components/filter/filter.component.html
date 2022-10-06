@@ -14,11 +14,11 @@
         "
       >
         <span>data</span>
-        <div *ngIf="openSortData">
+        <ng-container *ngIf="openSortData">
           <mat-icon *ngIf="isArrowData; else down" class="arrow-up arrow"
             >arrow_upward</mat-icon
           >
-        </div>
+        </ng-container>
       </button>
       <button
         class="filter__count btn"
@@ -32,11 +32,11 @@
         "
       >
         <span>count of views</span>
-        <div *ngIf="openSortCount">
+        <ng-container *ngIf="openSortCount">
           <mat-icon *ngIf="isArrowCount; else down" class="arrow-up arrow"
             >arrow_upward</mat-icon
           >
-        </div>
+        </ng-container>
       </button>
       <button
         class="filter__word btn"

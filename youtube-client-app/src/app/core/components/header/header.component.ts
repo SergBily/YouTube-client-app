@@ -13,13 +13,19 @@ export default class HeaderComponent implements OnInit {
 
   toggleSettings = false;
 
+  messageOpen = false;
+
   constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
 
   }
 
-  getResult(): void {
-    this.cardsService.getCards();
+  protected getResult(value: string): void {
+    this.messageOpen = value.trim() ? !this.messageOpen : this.messageOpen;
+
+    if (this.messageOpen) {
+      this.cardsService.getCards();
+    }
   }
 }
