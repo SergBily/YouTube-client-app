@@ -1,17 +1,13 @@
-import {
-  Directive, ElementRef, Input, OnInit,
-} from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import HighLightEnum from 'src/app/shared/models/highlight.enum';
 
 @Directive({
   selector: '[appHighlight]',
 })
-export default class HighlightDirective implements OnInit {
+export default class HighlightDirective {
   @Input() appHighlight!: string;
 
   count!: number;
-
-  color!: string;
 
   day = 60 * 60 * 24 * 1000;
 
@@ -21,21 +17,17 @@ export default class HighlightDirective implements OnInit {
 
   halfYear = 6 * 30;
 
-  constructor(private el: ElementRef<HTMLDivElement>) {}
+  constructor() {}
 
-  ngOnInit(): void {
+  @HostBinding('style.backgroundColor') get getColor() {
     this.count = Math.trunc((Date.now() - Date.parse(this.appHighlight)) / this.day);
-
     if (this.count < this.week) {
-      this.color = HighLightEnum.blue;
-    } else if (this.count < this.month) {
-      this.color = HighLightEnum.green;
-    } else if (this.count < this.halfYear) {
-      this.color = HighLightEnum.yellow;
-    } else {
-      this.color = HighLightEnum.red;
+      return HighLightEnum.blue;
+    } if (this.count < this.month) {
+      return HighLightEnum.green;
+    } if (this.count < this.halfYear) {
+      return HighLightEnum.yellow;
     }
-
-    this.el.nativeElement.style.backgroundColor = this.color;
+    return HighLightEnum.red;
   }
 }
