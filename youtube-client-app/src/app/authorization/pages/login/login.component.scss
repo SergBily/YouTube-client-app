@@ -1,0 +1,27 @@
+@import '../../../../utils.scss';
+
+.container {
+  @include wh (400px, 330px);
+  position: absolute;
+  top: calc(50% - 165px);
+  left: calc(50% - 200px);
+  padding: 20px;
+  background-color: $bgMain;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, .15),
+              -7px -7px 20px rgba(255, 255, 255, 1),
+              0px 0px 4px rgba(255, 255, 255, .2);
+  border-radius: 30px;
+
+  .btn__login {
+    @include wh(125px, 30px);
+    @include flex($justify-content: center);
+    background-color: $btnMain;
+    color: $white;
+  }
+
+    .contatiner__btn {
+      @include wh (100%, auto);
+      @include flex($justify-content: flex-end);
+      gap: 10%;
+    }
+}
