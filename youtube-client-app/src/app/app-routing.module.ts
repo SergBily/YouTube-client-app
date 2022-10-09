@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import LoginComponent from './authorization/pages/login/login.component';
-import MainComponent from './youtube/pages/main/main.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent },
+  { path: 'authorization', loadChildren: () => import('./authorization/authorization.module').then((m) => m.default) },
+  { path: 'youtube', loadChildren: () => import('./youtube/youtube.module').then((m) => m.default) },
 ];
 
 @NgModule({

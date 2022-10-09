@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import AuthorizationRoutingModule from './authorization-routing.module';
 import RegistrationComponent from './pages/registration/registration.component';
 import LoginComponent from './pages/login/login.component';
 import InputEmailComponent from './components/input-email/input-email.component';
@@ -17,7 +17,7 @@ import InputPasswordComponent from './components/input-password/input-password.c
     InputPasswordComponent,
   ],
   imports: [
-    RouterModule,
+    AuthorizationRoutingModule,
     CommonModule,
     MatInputModule,
     ReactiveFormsModule,
