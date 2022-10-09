@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import MainComponent from './pages/main/main.component';
 import SearchItemComponent from './components/search-item/search-item.component';
 import SearchResultsComponent from './components/search-results/search-results.component';
-import CoreModule from '../core/core.module';
 import DetailedComponent from './pages/detailed/detailed.component';
 import FiltersPipe from './pipes/filters/filters.pipe';
 import HighlightDirective from './directives/highlight/highlight.directive';
@@ -21,12 +20,8 @@ import HighlightDirective from './directives/highlight/highlight.directive';
   ],
   imports: [
     CommonModule,
-    CoreModule,
     MatButtonModule,
     IconSpriteModule.forRoot({ path: 'assets/svg/sprite-main.svg' }),
-  ],
-  exports: [
-    MainComponent,
   ],
 })
 export default class YoutubeModule { }

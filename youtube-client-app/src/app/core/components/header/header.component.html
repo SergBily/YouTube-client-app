@@ -3,8 +3,12 @@
     <div class="search__container">
       <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
       <app-input-search #search></app-input-search>
-      <button class="btn__search" mat-raised-button (click)="getResult(search.value)">
-        search
+      <button
+        class="btn__search"
+        (click)="getResult(search.value)"
+        mat-raised-button
+      >
+        <span>search</span>
       </button>
       <button class="btn__settings" (click)="toggleSettings = !toggleSettings">
         <svg-icon-sprite
@@ -18,7 +22,11 @@
     </div>
     <div class="log__container">
       <p class="log__name">{{ loginName }}</p>
-      <button class="btn__login">
+      <a
+        routerLink="/login"
+        routerLinkActive="router-link-active"
+        class="btn__login"
+      >
         <svg-icon-sprite
           [src]="'login'"
           [title]="'login'"
@@ -26,7 +34,7 @@
           [height]="'32px'"
         >
         </svg-icon-sprite>
-      </button>
+      </a>
     </div>
     <svg class="icon-box" width="22" height="32">
       <use xlink:href="assets/svg/search_settings.svg"></use>
