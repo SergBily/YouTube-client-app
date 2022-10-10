@@ -1,6 +1,7 @@
 import {
   Component, OnInit,
 } from '@angular/core';
+import ApiService from '../../services/api/api.service';
 
 @Component({
   selector: 'app-input-search',
@@ -11,9 +12,19 @@ import {
 export default class InputSearchComponent implements OnInit {
   value!: string;
 
-  constructor() { }
+  isEmptyString = true;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
 
+  }
+
+  protected getResult(value: string): void {
+    this.isEmptyString = value.trim() ? !this.isEmptyString : this.isEmptyString;
+
+    if (!this.isEmptyString) {
+      this.api.getCards();
+    }
   }
 }

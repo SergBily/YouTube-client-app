@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <section class="filter" @openSettings>
+    <div class="filter__container">
+      <p class="filter__title">Sorting by:</p>
+      <button class="filter__data btn" (click)="sortingControl('data')">
+        <span>data</span>
+        <ng-container *ngIf="isOpenSortData">
+          <mat-icon *ngIf="isArrowData; else down" class="arrow-up arrow"
+            >arrow_upward</mat-icon
+          >
+        </ng-container>
+      </button>
+      <button class="filter__count btn" (click)="sortingControl('count')">
+        <span>count of views</span>
+        <ng-container *ngIf="isOpenSortCount">
+          <mat-icon *ngIf="isArrowCount; else down" class="arrow-up arrow"
+            >arrow_upward</mat-icon
+          >
+        </ng-container>
+      </button>
+      <button class="filter__word btn">
+        <span>by word or sentance</span>
+      </button>
+      <input class="input" type="text" [(ngModel)]="filter.value" />
+    </div>
+  </section>
+</div>
+<ng-template #down>
+  <mat-icon class="arrow-down arrow">arrow_downward</mat-icon>
+</ng-template>

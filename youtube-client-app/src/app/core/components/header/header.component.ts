@@ -1,7 +1,6 @@
 import {
   Component, OnInit,
 } from '@angular/core';
-import CardsService from '../../services/data/cards.service';
 
 @Component({
   selector: 'app-header',
@@ -11,21 +10,9 @@ import CardsService from '../../services/data/cards.service';
 export default class HeaderComponent implements OnInit {
   loginName = 'Your Name';
 
-  toggleSettings = false;
+  areOpenSettings = false;
 
-  messageOpen = false;
+  constructor() { }
 
-  constructor(private cardsService: CardsService) { }
-
-  ngOnInit(): void {
-
-  }
-
-  protected getResult(value: string): void {
-    this.messageOpen = value.trim() ? !this.messageOpen : this.messageOpen;
-
-    if (this.messageOpen) {
-      this.cardsService.getCards();
-    }
-  }
+  ngOnInit(): void {}
 }

@@ -1,11 +1,4 @@
-<div
-  class="card"
-  @openCards
-  *ngFor="
-    let card of cardsService.searchResult.items
-      | filters: toggleSortService.kindOfSort
-  "
->
+<div class="card">
   <div class="container">
     <img
       [src]="card.snippet.thumbnails.medium.url"

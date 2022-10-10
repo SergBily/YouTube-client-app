@@ -1,5 +1,9 @@
 @import '../../../../utils.scss';
 
+.wrapper {
+  @include flex();
+}
+
 .input__container {
   @include wh(396px, 24px);
   position: relative;
@@ -28,4 +32,11 @@
   border: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+.btn__search {
+  @include wh(80px, 24px);
+  @include flex();
+  background-color: $btnMain;
+  color: $white;
 }

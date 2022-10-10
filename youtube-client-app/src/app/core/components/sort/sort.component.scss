@@ -29,7 +29,7 @@
           cursor: pointer;
         }
 
-        .filter__date {
+        .filter__data {
           @include wh(34px);
         }
 
@@ -37,7 +37,7 @@
           @include wh(88px);
         }
 
-        .filter__date,
+        .filter__data,
         .filter__count {
           position: relative;
           text-decoration: underline;

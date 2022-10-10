@@ -19,13 +19,6 @@
         .log {
           cursor: pointer;
         }
-
-        .btn__search {
-          @include wh(80px, 24px);
-          @include flex($justify-content: center);
-          background-color: $btnMain;
-          color: $white;
-        }
       }
   }
 }

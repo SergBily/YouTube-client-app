@@ -7,7 +7,7 @@ import MainComponent from './pages/main/main.component';
 import SearchItemComponent from './components/search-item/search-item.component';
 import SearchResultsComponent from './components/search-results/search-results.component';
 import DetailedComponent from './pages/detailed/detailed.component';
-import FiltersPipe from './pipes/filters/filters.pipe';
+import FilterPipe from './pipes/filters/filter.pipe';
 import HighlightDirective from './directives/highlight/highlight.directive';
 
 @NgModule({
@@ -16,7 +16,7 @@ import HighlightDirective from './directives/highlight/highlight.directive';
     SearchItemComponent,
     SearchResultsComponent,
     DetailedComponent,
-    FiltersPipe,
+    FilterPipe,
     HighlightDirective,
   ],
   imports: [

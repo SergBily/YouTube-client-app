@@ -1,3 +1,9 @@
 <div class="wrapper">
-  <app-search-item class="cards__container"></app-search-item>
+  <div class="cards__container">
+    <app-search-item
+      *ngFor="let card of api.cards | filter: filter.value"
+      [card]="card"
+      @openCards
+    ></app-search-item>
+  </div>
 </div>

@@ -1,15 +1,20 @@
-<div class="input__container">
-  <input
-    class="input"
-    matInput
-    type="text"
-    [(ngModel)]="value"
-    autofocus
-    placeholder="What are you want to find out?"
-  />
-  <ng-container *ngIf="value">
-    <button class="button" (click)="value = ''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </ng-container>
+<div class="wrapper">
+  <div class="input__container">
+    <input
+      class="input"
+      matInput
+      type="text"
+      [(ngModel)]="value"
+      autofocus
+      placeholder="What are you want to find out?"
+    />
+    <ng-container *ngIf="value">
+      <button class="button" (click)="value = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+  <button class="btn__search" mat-raised-button (click)="getResult(value)">
+    search
+  </button>
 </div>
