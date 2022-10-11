@@ -1,0 +1,42 @@
+<div class="card__statistics">
+  <div class="view block">
+    <svg-icon-sprite
+      [src]="'viewed'"
+      [title]="'viewed'"
+      [width]="'23px'"
+      [height]="'14px'"
+    >
+    </svg-icon-sprite>
+    <span class="view__count">{{ card.statistics.viewCount }}</span>
+  </div>
+  <div class="like block">
+    <svg-icon-sprite
+      [src]="'liked'"
+      [title]="'liked'"
+      [width]="'23px'"
+      [height]="'14px'"
+    >
+    </svg-icon-sprite>
+    <span class="view__count">{{ card.statistics.likeCount }}</span>
+  </div>
+  <div class="dislike block">
+    <svg-icon-sprite
+      [src]="'dislike'"
+      [title]="'dislike'"
+      [width]="'23px'"
+      [height]="'14px'"
+    >
+    </svg-icon-sprite>
+    <span class="view__count">{{ card.statistics.dislikeCount }}</span>
+  </div>
+  <div class="comment block">
+    <svg-icon-sprite
+      [src]="'Group 9'"
+      [title]="'Group'"
+      [width]="'23px'"
+      [height]="'14px'"
+    >
+    </svg-icon-sprite>
+    <span class="view__count">{{ card.statistics.commentCount }}</span>
+  </div>
+</div>
