@@ -8,9 +8,9 @@ describe('InputEmailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputEmailComponent ]
+      declarations: [InputEmailComponent],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(InputEmailComponent);
     component = fixture.componentInstance;

@@ -6,16 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import HeaderComponent from './components/header/header.component';
-import NotFoundComponent from './pages/not-found/not-found.component';
 import InputSearchComponent from './components/input-search/input-search.component';
 import SortComponent from './components/sort/sort.component';
+import PageNotFoundComponent from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    NotFoundComponent,
     InputSearchComponent,
     SortComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     RouterModule,
