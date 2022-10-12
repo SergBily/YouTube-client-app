@@ -11,10 +11,16 @@ export default class ApiService {
 
   cards!: ItemResponse[];
 
-  constructor() {}
+  constructor() {
+  }
 
   public getCards(): void {
     this.searchResult = mocksData;
     this.cards = this.searchResult.items;
+  }
+
+  public getSelectedCard(id: string): ItemResponse {
+    this.searchResult = mocksData;
+    return this.searchResult.items.find((card) => card.etag === id) as ItemResponse;
   }
 }

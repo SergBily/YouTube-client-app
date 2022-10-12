@@ -1,1 +1,37 @@
-<p>detailed works!</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="container__btn-back">
+      <button class="detailed__back" routerLink="/youtube/main">
+        <img
+          class="detailed__back-img"
+          src="/assets/image/back_button.png"
+          width="32px"
+          height="32px"
+          alt="back button"
+        />
+      </button>
+    </div>
+    <img
+      class="detailed__img"
+      [src]="selectedCard.snippet.thumbnails.maxres.url"
+      width="730"
+      height="460"
+      alt="video"
+    />
+    <div class="detailed__description">
+      <div class="container__title">
+        <h1 class="detailed__title">{{ selectedCard.snippet.title }}</h1>
+        <span class="detailed__published">{{
+          selectedCard.snippet.publishedAt | date: "fullDate"
+        }}</span>
+      </div>
+      <h3 class="detailed__published-desc">Description:</h3>
+      <p class="detailed__text">{{ selectedCard.snippet.description }}</p>
+      <app-statistics [card]="selectedCard"></app-statistics>
+      <div
+        [appHighlight]="selectedCard.snippet.publishedAt"
+        class="card__highlight"
+      ></div>
+    </div>
+  </div>
+</div>

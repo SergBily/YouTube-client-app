@@ -9,6 +9,7 @@ import SearchResultsComponent from './components/search-results/search-results.c
 import DetailedComponent from './pages/detailed/detailed.component';
 import FilterPipe from './pipes/filters/filter.pipe';
 import HighlightDirective from './directives/highlight/highlight.directive';
+import StatisticsComponent from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import HighlightDirective from './directives/highlight/highlight.directive';
     DetailedComponent,
     FilterPipe,
     HighlightDirective,
+    StatisticsComponent,
   ],
   imports: [
     YoutubeRoutingModule,

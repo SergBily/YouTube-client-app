@@ -20,20 +20,6 @@
       flex-direction: column;
     }
 
-    .card__statistics {
-      @include wh(202px, 20px);
-      @include flex();
-
-        .block {
-          @include flex();
-
-            .view__count {
-              @include font($font-size: 10px, $line-height: 12px);
-              padding-bottom: 5px
-            }
-        }
-     }
-
      .card__title {
       @include wh(223px);
       @include font($font-size: 20px, $line-height: 23px, $font-weight: 700);
