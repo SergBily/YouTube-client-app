@@ -25,3 +25,17 @@
       gap: 10%;
     }
 }
+
+.btn__logout {
+  @include wh(125px, 30px);
+    @include flex($justify-content: center);
+    background-color: $btnMain;
+    color: $white;
+}
+
+.container {
+  .btn {
+    @include wh (100%, auto);
+    @include flex($justify-content: center);
+  }
+}

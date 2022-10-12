@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import LoginService from '../../services/login/login.service';
 
 @Component({
   selector: 'app-input-password',
@@ -9,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 export default class InputPasswordComponent implements OnInit {
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
   }

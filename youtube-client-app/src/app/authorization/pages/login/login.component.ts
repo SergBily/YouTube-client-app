@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import LoginService from '../../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export default class LoginComponent implements OnInit {
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
-
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import LoginService from '../../services/login/login.service';
 
 @Component({
   selector: 'app-input-email',
@@ -9,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 export default class InputEmailComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit(): void {
   }
