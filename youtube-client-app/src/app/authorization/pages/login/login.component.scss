@@ -28,9 +28,9 @@
 
 .btn__logout {
   @include wh(125px, 30px);
-    @include flex($justify-content: center);
-    background-color: $btnMain;
-    color: $white;
+  @include flex($justify-content: center);
+   background-color: $btnMain;
+  color: $white;
 }
 
 .container {
@@ -38,4 +38,41 @@
     @include wh (100%, auto);
     @include flex($justify-content: center);
   }
+}
+
+.container__logout {
+  @include wh (400px, 130px);
+  position: relative;
+
+    .title__logout {
+      text-align: center;
+    }
+
+    .button__close {
+      @include wh(25px,20px);
+      @include flex($justify-content: center);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 0;
+      cursor: pointer;
+
+        .icon__close {
+          transition: all 0.5s ease-in-out;
+          -webkit-transition: all 0.5s ease-in-out;
+          -moz-transition: all 0.5s ease-in-out;
+          -ms-transition: all 0.5s ease-in-out;
+          -o-transition: all 0.5s ease-in-out;
+        }
+
+        .icon__close:hover {
+          filter: invert(0.5);
+          -webkit-filter: invert(0.5);
+          transition: all 0.5s ease-in-out;
+          -webkit-transition: all 0.5s ease-in-out;
+          -moz-transition: all 0.5s ease-in-out;
+          -ms-transition: all 0.5s ease-in-out;
+          -o-transition: all 0.5s ease-in-out;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!loginService.isLogin; else logout">
+<div class="container" *ngIf="!login; else logout">
   <h1 class="title">Login</h1>
   <app-input-email></app-input-email>
   <app-input-password></app-input-password>
@@ -15,8 +15,8 @@
   </div>
 </div>
 <ng-template #logout>
-  <div class="container">
-    <h1 class="title">Logout</h1>
+  <div class="container container__logout">
+    <h1 class="title title__logout">Press the button to exit</h1>
     <div class="contatiner__btn btn">
       <button
         routerLink=""
@@ -25,6 +25,9 @@
         mat-raised-button
       >
         Logout
+      </button>
+      <button class="button__close" routerLink="/youtube/main/search">
+        <mat-icon class="icon__close">close</mat-icon>
       </button>
     </div>
   </div>

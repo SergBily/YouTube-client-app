@@ -13,8 +13,8 @@ export default class AuthGuard implements CanActivate {
   }
 
   checkLogin(): boolean {
-    const isLogin: string | null = localStorage.getItem('login');
-    if (isLogin) { return true; }
+    const login: string | null = localStorage.getItem('login');
+    if (login) { return true; }
 
     this.router.navigate(['/authorization/login']);
 
