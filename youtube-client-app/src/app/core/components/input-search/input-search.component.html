@@ -14,7 +14,13 @@
       </button>
     </ng-container>
   </div>
-  <button class="btn__search" mat-raised-button (click)="getResult(value)">
+  <button
+    class="btn__search"
+    mat-raised-button
+    routerLink="/youtube/main/search"
+    [queryParams]="{ req: value }"
+    (click)="getResult(value)"
+  >
     search
   </button>
 </div>
