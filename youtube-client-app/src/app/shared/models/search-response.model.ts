@@ -4,6 +4,8 @@ export default interface SearchResponse {
   kind: string,
   etag: string,
   pageInfo: PageInfo,
+  nextPageToken: string,
+  regionCode: string,
   items: ItemResponse[]
 }
 

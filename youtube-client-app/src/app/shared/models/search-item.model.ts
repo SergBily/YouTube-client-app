@@ -1,9 +1,14 @@
 export default interface ItemResponse {
   kind: string,
   etag: string,
-  id: string,
+  id: IdItemResponse,
   snippet: SnippetItem,
   statistics: StatisticsItem
+}
+
+interface IdItemResponse {
+  kind: string,
+  videoId: string
 }
 
 interface SnippetItem {
@@ -17,7 +22,8 @@ interface SnippetItem {
   categoryId: string,
   liveBroadcastContent: string,
   localized: LocalizedSnippetItem,
-  defaultAudioLanguage: string
+  defaultAudioLanguage: string,
+  defaultLanguage: string,
 }
 
 interface ThumbnailsSnippetItem {
@@ -31,7 +37,7 @@ interface ThumbnailsSnippetItem {
 interface ThumbnailsParameters {
   url: string,
   width: number,
-  height: number
+  height: number,
 }
 
 interface LocalizedSnippetItem {
@@ -42,7 +48,6 @@ interface LocalizedSnippetItem {
 interface StatisticsItem {
   viewCount: string,
   likeCount: string,
-  dislikeCount: string,
   favoriteCount: string,
   commentCount: string
 }
