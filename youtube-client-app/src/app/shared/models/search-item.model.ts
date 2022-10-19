@@ -3,7 +3,12 @@ export default interface ItemResponse {
   etag: string,
   id: IdItemResponse,
   snippet: SnippetItem,
-  statistics: StatisticsItem
+  statistics: StatisticsItem,
+  player: Video;
+}
+
+interface Video {
+  embedHtml: string
 }
 
 interface IdItemResponse {

@@ -24,7 +24,7 @@ export default class InputSearchComponent implements OnInit {
     this.isEmptyString = value.trim() ? !this.isEmptyString : this.isEmptyString;
 
     if (!this.isEmptyString) {
-      this.api.getCards();
+      this.api.getCards(this.value);
       this.value = '';
     }
   }

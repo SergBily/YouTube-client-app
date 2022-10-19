@@ -3,6 +3,7 @@
 .card {
   @include wh(263px, 327px);
   @include flex();
+  gap: 5px;
   position: relative;
   padding: 20px 0 15px 0;
   flex-direction: column;
@@ -21,9 +22,10 @@
     }
 
      .card__title {
-      @include wh(223px);
+      @include wh(223px, 100px);
       @include font($font-size: 20px, $line-height: 23px, $font-weight: 700);
       margin: 0;
+      overflow: auto;
       color: $LoginColor;
       text-align: center;
      }

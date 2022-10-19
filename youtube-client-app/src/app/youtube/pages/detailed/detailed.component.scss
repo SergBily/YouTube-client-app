@@ -76,7 +76,7 @@
             @include font($font-size: 14px);
             color: $deckColor;
             margin: 0;
-            overflow: hidden;
+            overflow: auto;
             margin-bottom: 12px
           }
         }
