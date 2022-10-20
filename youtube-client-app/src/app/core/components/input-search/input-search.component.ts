@@ -1,6 +1,10 @@
 import {
-  Component, OnInit,
+  AfterViewInit,
+  Component, ElementRef, OnInit, ViewChild,
 } from '@angular/core';
+import {
+  debounceTime, distinctUntilChanged, filter, fromEvent, map, mergeMap,
+} from 'rxjs';
 import ApiService from '../../services/api/api.service';
 
 @Component({
@@ -9,7 +13,9 @@ import ApiService from '../../services/api/api.service';
   styleUrls: ['./input-search.component.scss'],
 
 })
-export default class InputSearchComponent implements OnInit {
+export default class InputSearchComponent implements OnInit, AfterViewInit {
+  @ViewChild('search') inputSearch!: ElementRef;
+
   value!: string;
 
   isEmptyString = true;
@@ -18,6 +24,20 @@ export default class InputSearchComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  ngAfterViewInit(): void {
+    const inputElement = this.inputSearch.nativeElement;
+
+    fromEvent<InputEvent>(inputElement, 'input')
+      .pipe(
+        map((event) => (event.target as HTMLInputElement).value),
+        filter((value) => value.length >= 3),
+        debounceTime(800),
+        distinctUntilChanged(),
+        mergeMap(async (query) => this.api.getCards(query)),
+      )
+      .subscribe();
   }
 
   protected getResult(value: string): void {
