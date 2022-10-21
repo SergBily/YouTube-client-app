@@ -5,12 +5,12 @@
   position: relative;
 
     .container {
-      @include wh(340px, 100px);
+      @include wh(440px, 200px);
       @include flex();
       position: absolute;
       gap: 10px;
-      top: calc(50% - 100px);
-      left: calc(50% - 160px);
+      top: calc(50% - 200px);
+      left: calc(50% - 220px);
       color: $LoginColor;
 
         .not-found__text {

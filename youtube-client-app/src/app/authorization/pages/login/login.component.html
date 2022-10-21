@@ -1,12 +1,12 @@
-<div class="container" *ngIf="!login; else logout">
+<div class="container" *ngIf="!authState.getCurrentState(); else logout">
   <h1 class="title">Login</h1>
   <app-input-email></app-input-email>
   <app-input-password></app-input-password>
   <div class="contatiner__btn">
     <a>Registration</a>
     <button
-      routerLink="/youtube/main"
-      (click)="loginService.login()"
+      routerLink="/youtube/main/search"
+      (click)="authState.setAuthState(true)"
       class="btn__login"
       mat-raised-button
     >
@@ -21,12 +21,16 @@
       <button
         routerLink=""
         class="btn__logout"
-        (click)="loginService.logout()"
+        (click)="authState.setAuthState(false)"
         mat-raised-button
       >
         Logout
       </button>
-      <button class="button__close" routerLink="/youtube/main/search">
+      <button
+        class="button__close"
+        routerLink="/youtube/main/search"
+        [queryParams]="{ req: api.searchCurValue }"
+      >
         <mat-icon class="icon__close">close</mat-icon>
       </button>
     </div>

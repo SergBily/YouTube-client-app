@@ -2,9 +2,11 @@ import {
   AfterViewInit,
   Component, ElementRef, OnInit, ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import {
-  debounceTime, distinctUntilChanged, filter, fromEvent, map, mergeMap,
+  debounceTime, distinctUntilChanged, filter, fromEvent, map, mergeMap, tap,
 } from 'rxjs';
+import AuthStateService from 'src/app/authorization/services/login/auth-state.service';
 import ApiService from '../../services/api/api.service';
 
 @Component({
@@ -16,11 +18,11 @@ import ApiService from '../../services/api/api.service';
 export default class InputSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('search') inputSearch!: ElementRef;
 
-  value!: string;
-
-  isEmptyString = true;
-
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    private router: Router,
+    private stateAuth: AuthStateService,
+  ) { }
 
   ngOnInit(): void {
 
@@ -28,24 +30,21 @@ export default class InputSearchComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const inputElement = this.inputSearch.nativeElement;
+    let stateAuth: boolean;
+    this.stateAuth.getStateChanged().subscribe((state) => { stateAuth = state; });
 
     fromEvent<InputEvent>(inputElement, 'input')
       .pipe(
         map((event) => (event.target as HTMLInputElement).value),
-        filter((value) => value.length >= 3),
+        filter((value) => value.length >= 3 && stateAuth),
         debounceTime(800),
         distinctUntilChanged(),
+        tap((query) => {
+          this.router.navigate(['/youtube/main/search'], { queryParams: { req: query } });
+          this.api.searchCurValue = query;
+        }),
         mergeMap(async (query) => this.api.getCards(query)),
       )
       .subscribe();
-  }
-
-  protected getResult(value: string): void {
-    this.isEmptyString = value.trim() ? !this.isEmptyString : this.isEmptyString;
-
-    if (!this.isEmptyString) {
-      this.api.getCards(this.value);
-      this.value = '';
-    }
   }
 }

@@ -15,6 +15,8 @@ export default class ApiService implements OnDestroy {
 
   cards!: ItemResponse[];
 
+  searchCurValue!: string;
+
   curVideo!: Observable<ItemResponse>;
 
   subscribe!: Subscription;

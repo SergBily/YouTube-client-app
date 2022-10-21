@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import LoginService from '../../services/login/login.service';
+import ApiService from 'src/app/core/services/api/api.service';
+import AuthStateService from '../../services/login/auth-state.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,7 @@ import LoginService from '../../services/login/login.service';
   styleUrls: ['./login.component.scss'],
 })
 export default class LoginComponent implements OnInit {
-  login: string | null = localStorage.getItem('login');
-
-  constructor(public loginService: LoginService) { }
+  constructor(public authState: AuthStateService, public api: ApiService) { }
 
   ngOnInit(): void {
   }

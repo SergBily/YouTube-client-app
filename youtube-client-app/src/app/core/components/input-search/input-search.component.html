@@ -5,23 +5,13 @@
       class="input"
       matInput
       type="text"
-      [(ngModel)]="value"
       autofocus
       placeholder="What are you want to find out?"
     />
-    <ng-container *ngIf="value">
-      <button class="button" (click)="value = ''">
+    <ng-container *ngIf="search.value">
+      <button class="button" (click)="search.value = ''">
         <mat-icon>close</mat-icon>
       </button>
     </ng-container>
   </div>
-  <button
-    class="btn__search"
-    mat-raised-button
-    routerLink="/youtube/main/search"
-    [queryParams]="{ req: value }"
-    (click)="getResult(value)"
-  >
-    search
-  </button>
 </div>

@@ -1,7 +1,11 @@
-<div class="wrapper" *ngIf="selectedCard$ | async as selectedCard ">
+<div class="wrapper" *ngIf="selectedCard$ | async as selectedCard">
   <div class="container">
     <div class="container__btn-back">
-      <button class="detailed__back" routerLink="/youtube/main/search">
+      <button
+        class="detailed__back"
+        routerLink="/youtube/main/search"
+        [queryParams]="{ req: api.searchCurValue }"
+      >
         <img
           class="detailed__back-img"
           src="/assets/image/back_button.png"
