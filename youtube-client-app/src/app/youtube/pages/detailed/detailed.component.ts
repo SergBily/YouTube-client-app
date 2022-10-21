@@ -12,10 +12,14 @@ import ItemResponse from 'src/app/shared/models/search-item.model';
 export default class DetailedComponent implements OnInit {
   selectedCard$!: Observable<ItemResponse>;
 
+  curQuery!: string | null;
+
   constructor(private route: ActivatedRoute, public api: ApiService) { }
 
   ngOnInit(): void {
     const selectedCardId: string = this.route.snapshot.queryParams['id'];
+
+    this.curQuery = localStorage.getItem('currentQuery');
     this.selectedCard$ = this.api.getSelectedCard(selectedCardId);
   }
 }

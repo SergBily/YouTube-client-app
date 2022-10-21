@@ -42,6 +42,7 @@ export default class InputSearchComponent implements OnInit, AfterViewInit {
         tap((query) => {
           this.router.navigate(['/youtube/main/search'], { queryParams: { req: query } });
           this.api.searchCurValue = query;
+          localStorage.setItem('currentQuery', `${query}`);
         }),
         mergeMap(async (query) => this.api.getCards(query)),
       )

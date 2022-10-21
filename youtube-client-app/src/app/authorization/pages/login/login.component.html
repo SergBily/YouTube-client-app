@@ -21,7 +21,7 @@
       <button
         routerLink=""
         class="btn__logout"
-        (click)="authState.setAuthState(false)"
+        (click)="authState.setAuthState(false); removeQuery()"
         mat-raised-button
       >
         Logout
@@ -29,7 +29,7 @@
       <button
         class="button__close"
         routerLink="/youtube/main/search"
-        [queryParams]="{ req: api.searchCurValue }"
+        [queryParams]="{ req: curQuery }"
       >
         <mat-icon class="icon__close">close</mat-icon>
       </button>

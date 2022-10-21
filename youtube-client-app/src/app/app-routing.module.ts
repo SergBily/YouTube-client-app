@@ -14,6 +14,7 @@ const routes: Routes = [
     routes,
     {
       preloadingStrategy: PreloadAllModules,
+      onSameUrlNavigation: 'reload',
     },
   )],
   exports: [RouterModule],
