@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable, OnDestroy } from '@angular/core';
-import { AppConfig, APP_CONFIG } from 'src/app/shared/config/app.config';
+import { Injectable, OnDestroy } from '@angular/core';
 import {
   map, mergeMap, Observable, Subscription,
 } from 'rxjs';
@@ -21,15 +20,14 @@ export default class ApiService implements OnDestroy {
 
   subscribe!: Subscription;
 
-  constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   public getCards(request: string): void {
     const req = this.http.get<SearchResponse>(
-      `${this.appConfig.baseUrl}/search`,
+      '/search',
       {
         params: {
-          key: this.appConfig.apiKey,
           type: 'video',
           part: 'snippet',
           maxResults: '16',
@@ -41,10 +39,9 @@ export default class ApiService implements OnDestroy {
         map((res) => res.items.map((video) => video.id.videoId)),
         mergeMap(
           (idVideo) => this.http.get<SearchResponse>(
-            `${this.appConfig.baseUrl}/videos`,
+            '/videos',
             {
               params: {
-                key: this.appConfig.apiKey,
                 id: idVideo,
                 part: 'snippet,statistics',
               },
@@ -60,10 +57,9 @@ export default class ApiService implements OnDestroy {
 
   public getSelectedCard(id: string): Observable<ItemResponse> {
     return this.http.get<SearchResponse>(
-      `${this.appConfig.baseUrl}/videos`,
+      '/videos',
       {
         params: {
-          key: this.appConfig.apiKey,
           id,
           part: 'snippet,statistics',
         },
