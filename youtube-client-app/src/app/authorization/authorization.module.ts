@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import AuthorizationRoutingModule from './authorization-routing.module';
@@ -23,6 +23,7 @@ import InputPasswordComponent from './components/input-password/input-password.c
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
     MatButtonModule,
   ],
 })

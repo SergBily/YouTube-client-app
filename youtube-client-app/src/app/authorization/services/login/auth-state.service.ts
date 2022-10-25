@@ -9,7 +9,7 @@ export default class AuthStateService {
 
   password!: string;
 
-  private state: boolean = !!localStorage.getItem('stateAuth');
+  private state: boolean = localStorage.getItem('stateAuth') === 'true';
 
   private authSubject = new BehaviorSubject<boolean>(this.state);
 

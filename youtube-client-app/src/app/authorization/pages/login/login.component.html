@@ -1,14 +1,15 @@
 <div class="container" *ngIf="!authState.getCurrentState(); else logout">
   <h1 class="title">Login</h1>
-  <app-input-email></app-input-email>
-  <app-input-password></app-input-password>
+  <app-input-email (email)="toggleAccess($event)"></app-input-email>
+  <app-input-password (password)="toggleAccess($event)"></app-input-password>
   <div class="contatiner__btn">
     <a>Registration</a>
     <button
+      #btnLogin
       routerLink="/youtube/main/search"
-      (click)="authState.setAuthState(true)"
       class="btn__login"
-      mat-raised-button
+      (click)="authState.setAuthState(true)"
+      [disabled]="!isAccess"
     >
       Login
     </button>

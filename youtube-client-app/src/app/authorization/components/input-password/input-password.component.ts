@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import AuthStateService from '../../services/login/auth-state.service';
+import InputLoginStatus from 'src/app/shared/models/input-status.modet';
+import CustomValidatorsService from '../../services/validator/custom-validators.service';
 
 @Component({
   selector: 'app-input-password',
@@ -8,10 +11,18 @@ import AuthStateService from '../../services/login/auth-state.service';
   styleUrls: ['./input-password.component.scss'],
 })
 export default class InputPasswordComponent implements OnInit {
-  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
+  protected passwordFormControl = new FormControl(
+    '',
+    [Validators.required, this.customValidators.customValidatorForPassword()],
+  );
 
-  constructor(public authState: AuthStateService) { }
+  @Output() password = new EventEmitter<InputLoginStatus>();
 
-  ngOnInit(): void {
+  constructor(private customValidators: CustomValidatorsService) { }
+
+  ngOnInit(): void {}
+
+  protected changeValidStatus(): void {
+    this.password.emit({ nameInput: 'password', isValid: this.passwordFormControl.valid });
   }
 }

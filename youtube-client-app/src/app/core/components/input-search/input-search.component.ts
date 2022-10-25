@@ -17,7 +17,7 @@ import ApiService from '../../services/api/api.service';
 
 })
 export default class InputSearchComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('search') inputSearch!: ElementRef;
+  @ViewChild('search') inputSearch!: ElementRef<HTMLInputElement>;
 
   inputSubscribe!: Subscription;
 

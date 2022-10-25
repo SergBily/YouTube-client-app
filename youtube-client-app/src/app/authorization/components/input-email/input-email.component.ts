@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import AuthStateService from '../../services/login/auth-state.service';
+import InputLoginStatus from 'src/app/shared/models/input-status.modet';
 
 @Component({
   selector: 'app-input-email',
@@ -8,10 +10,16 @@ import AuthStateService from '../../services/login/auth-state.service';
   styleUrls: ['./input-email.component.scss'],
 })
 export default class InputEmailComponent implements OnInit {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  protected emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(public authState: AuthStateService) { }
+  @Output() email = new EventEmitter<InputLoginStatus>();
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  protected changeValidStatus(): void {
+    this.email.emit({ nameInput: 'email', isValid: this.emailFormControl.valid });
   }
 }

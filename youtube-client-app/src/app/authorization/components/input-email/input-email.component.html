@@ -5,8 +5,8 @@
       type="email"
       matInput
       [formControl]="emailFormControl"
-      [(ngModel)]="authState.email"
       placeholder="Ex. pat@gmail.com"
+      (input)="changeValidStatus()"
     />
     <mat-error
       *ngIf="
@@ -14,10 +14,10 @@
         !emailFormControl.hasError('required')
       "
     >
-      Please enter a valid email address
+      The login email is invalid
     </mat-error>
     <mat-error *ngIf="emailFormControl.hasError('required')">
-      Email is <strong>required</strong>
+      Please enter a login email
     </mat-error>
   </mat-form-field>
 </form>
