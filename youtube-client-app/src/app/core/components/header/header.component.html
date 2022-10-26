@@ -1,7 +1,9 @@
 <div class="wrapper">
   <header class="header">
     <div class="search__container">
-      <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
+      <button class="admin" routerLink="/admin/create">
+        <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
+      </button>
       <app-input-search></app-input-search>
       <button class="btn__settings" (click)="areOpenSettings = !areOpenSettings">
         <svg-icon-sprite

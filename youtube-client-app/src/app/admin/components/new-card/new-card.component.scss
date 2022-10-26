@@ -1,0 +1,35 @@
+@import '../../../../utils.scss';
+
+.container {
+  @include wh (400px, 530px);
+  position: absolute;
+  top: calc(50% - 265px);
+  left: calc(50% - 200px);
+  padding: 20px;
+  background-color: $bgMain;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, .15),
+              -7px -7px 20px rgba(255, 255, 255, 1),
+              0px 0px 4px rgba(255, 255, 255, .2);
+  border-radius: 30px;
+
+    .admin__form {
+margin: 30px 0 20px 0;
+    }
+}
+
+.admin__title {
+  @include font($font-size: 1.5rem, $font-weight: 500);
+  margin-top: 30px;
+}
+
+.admin-full-width {
+  width: 100%;
+}
+
+.admin__btn {
+  @include wh(175px, 40px);
+  @include flex($justify-content: center);
+  background-color: $btnMain;
+  color: $white;
+  margin-left: auto;
+}

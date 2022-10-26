@@ -5,6 +5,7 @@ import PageNotFoundComponent from './core/pages/page-not-found/page-not-found.co
 const routes: Routes = [
   { path: 'authorization', loadChildren: () => import('./authorization/authorization.module').then((m) => m.default) },
   { path: 'youtube', loadChildren: () => import('./youtube/youtube.module').then((m) => m.default) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then((m) => m.default) },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

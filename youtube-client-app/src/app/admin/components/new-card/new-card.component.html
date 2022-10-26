@@ -1,0 +1,44 @@
+<div class="container">
+  <h1 class="admin__title">Create new card</h1>
+  <form class="admin__form" action="">
+    <form class="admin__title-card form">
+      <mat-form-field class="admin-full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput placeholder="Text" />
+      </mat-form-field>
+    </form>
+    <form class="admin__description form">
+      <mat-form-field class="admin-full-width" appearance="fill">
+        <mat-label>Description</mat-label>
+        <input type="text" matInput placeholder="Text" />
+      </mat-form-field>
+    </form>
+    <form class="admin__img form">
+      <mat-form-field class="admin-full-width" appearance="fill">
+        <mat-label>Img</mat-label>
+        <input
+          type="url"
+          matInput
+          placeholder="https://www.google.com/your-img.png"
+        />
+      </mat-form-field>
+    </form>
+    <form class="admin__link form">
+      <mat-form-field class="admin-full-width" appearance="fill">
+        <mat-label>Link video</mat-label>
+        <input
+          type="url"
+          matInput
+          placeholder="https://www.google.com/your-video.mp4"
+        />
+      </mat-form-field>
+    </form>
+    <form class="admin__date form">
+      <mat-form-field class="admin-full-width" appearance="fill">
+        <mat-label>Creation date</mat-label>
+        <input type="date" matInput placeholder="Ex. pat@example.com" />
+      </mat-form-field>
+    </form>
+  </form>
+  <button class="admin__btn" mat-raised-button>Create card</button>
+</div>
