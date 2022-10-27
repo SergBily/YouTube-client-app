@@ -1,16 +1,40 @@
 <div class="container">
   <h1 class="admin__title">Create new card</h1>
-  <form class="admin__form" action="">
+  <form class="admin__form" [formGroup]="createCardGroup">
     <form class="admin__title-card form">
       <mat-form-field class="admin-full-width" appearance="fill">
         <mat-label>Title</mat-label>
-        <input type="text" matInput placeholder="Text" />
+        <input
+          type="text"
+          formControlName="title"
+          matInput
+          placeholder="Text"
+        />
+        <mat-error *ngIf="createCardGroup.get('title')?.hasError('required')">
+          Please enter a title
+        </mat-error>
+        <mat-error *ngIf="createCardGroup.get('title')?.hasError('minlength')">
+          The title is too short
+        </mat-error>
+        <mat-error *ngIf="createCardGroup.get('title')?.hasError('maxlength')">
+          The title is too long
+        </mat-error>
       </mat-form-field>
     </form>
     <form class="admin__description form">
       <mat-form-field class="admin-full-width" appearance="fill">
         <mat-label>Description</mat-label>
-        <input type="text" matInput placeholder="Text" />
+        <input
+          type="text"
+          formControlName="description"
+          matInput
+          placeholder="Text"
+        />
+        <mat-error
+          *ngIf="createCardGroup.get('description')?.hasError('maxlength')"
+        >
+          The description is too long
+        </mat-error>
       </mat-form-field>
     </form>
     <form class="admin__img form">
@@ -18,9 +42,16 @@
         <mat-label>Img</mat-label>
         <input
           type="url"
+          formControlName="img"
           matInput
           placeholder="https://www.google.com/your-img.png"
         />
+        <mat-error *ngIf="createCardGroup.get('img')?.hasError('required')">
+          Please enter a link to the image
+        </mat-error>
+        <mat-error *ngIf="createCardGroup.get('img')?.hasError('pattern')">
+          The image link is invalid
+        </mat-error>
       </mat-form-field>
     </form>
     <form class="admin__link form">
@@ -28,17 +59,42 @@
         <mat-label>Link video</mat-label>
         <input
           type="url"
+          formControlName="video"
           matInput
           placeholder="https://www.google.com/your-video.mp4"
         />
+        <mat-error *ngIf="createCardGroup.get('video')?.hasError('required')">
+          Please enter a link to the video
+        </mat-error>
+        <mat-error *ngIf="createCardGroup.get('video')?.hasError('pattern')">
+          The video link is invalid
+        </mat-error>
       </mat-form-field>
     </form>
     <form class="admin__date form">
       <mat-form-field class="admin-full-width" appearance="fill">
         <mat-label>Creation date</mat-label>
-        <input type="date" matInput placeholder="Ex. pat@example.com" />
+        <input
+          type="date"
+          formControlName="date"
+          matInput
+          placeholder="Ex. pat@example.com"
+        />
+        <mat-error *ngIf="createCardGroup.get('date')?.hasError('required')">
+          Please enter a creation date
+        </mat-error>
+        <mat-error *ngIf="createCardGroup.get('date')?.hasError('date')">
+          The date is invalid
+        </mat-error>
       </mat-form-field>
     </form>
   </form>
-  <button class="admin__btn" mat-raised-button>Create card</button>
+  <button
+    class="admin__btn"
+    routerLink="/youtube/main/search"
+    [disabled]="!status"
+    mat-raised-button
+  >
+    Create card
+  </button>
 </div>

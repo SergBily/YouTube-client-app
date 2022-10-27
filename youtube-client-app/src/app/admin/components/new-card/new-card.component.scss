@@ -29,7 +29,12 @@ margin: 30px 0 20px 0;
 .admin__btn {
   @include wh(175px, 40px);
   @include flex($justify-content: center);
+  @include font();
+  margin-left: auto;
   background-color: $btnMain;
   color: $white;
-  margin-left: auto;
+}
+
+.valid__form {
+  background-color: $btnMain;
 }
