@@ -5,11 +5,12 @@
   <div class="contatiner__btn">
     <a>Registration</a>
     <button
-      #btnLogin
       routerLink="/youtube/main/search"
       class="btn__login"
+      [ngClass]="{'login__status': isAccess}"
       (click)="authState.setAuthState(true)"
       [disabled]="!isAccess"
+      mat-raised-button
     >
       Login
     </button>

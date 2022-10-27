@@ -10,13 +10,14 @@ import InputLoginStatus from 'src/app/shared/models/input-status.modet';
   styleUrls: ['./input-email.component.scss'],
 })
 export default class InputEmailComponent implements OnInit {
-  protected emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  protected emailFormControl!: FormControl;
 
   @Output() email = new EventEmitter<InputLoginStatus>();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   }
 
   protected changeValidStatus(): void {

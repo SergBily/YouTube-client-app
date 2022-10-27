@@ -11,16 +11,18 @@ import CustomValidatorsService from '../../services/validator/custom-validators.
   styleUrls: ['./input-password.component.scss'],
 })
 export default class InputPasswordComponent implements OnInit {
-  protected passwordFormControl = new FormControl(
-    '',
-    [Validators.required, this.customValidators.customValidatorForPassword()],
-  );
+  protected passwordFormControl!: FormControl;
 
   @Output() password = new EventEmitter<InputLoginStatus>();
 
   constructor(private customValidators: CustomValidatorsService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.passwordFormControl = new FormControl(
+      '',
+      [Validators.required, this.customValidators.customValidatorForPassword()],
+    );
+  }
 
   protected changeValidStatus(): void {
     this.password.emit({ nameInput: 'password', isValid: this.passwordFormControl.valid });
