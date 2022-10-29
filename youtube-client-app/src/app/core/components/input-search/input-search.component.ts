@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild,
+  Component, ElementRef, OnInit, Renderer2, ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -16,7 +16,7 @@ import ApiService from '../../services/api/api.service';
   styleUrls: ['./input-search.component.scss'],
 
 })
-export default class InputSearchComponent implements OnInit, AfterViewInit, OnDestroy {
+export default class InputSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('search') inputSearch!: ElementRef;
 
   inputSubscribe!: Subscription;
@@ -24,25 +24,23 @@ export default class InputSearchComponent implements OnInit, AfterViewInit, OnDe
   constructor(
     private api: ApiService,
     private router: Router,
-    private stateAuth: AuthStateService,
+    public stateAuth: AuthStateService,
     private renderer: Renderer2,
   ) { }
 
   ngOnInit(): void {}
 
   protected clearSearch(): void {
-    this.renderer.setValue(this.inputSearch.nativeElement, '');
+    this.renderer.setProperty(this.inputSearch.nativeElement, 'value', '');
   }
 
   ngAfterViewInit(): void {
     const inputElement = this.inputSearch.nativeElement;
-    let stateAuth: boolean;
-    this.stateAuth.getStateChanged().subscribe((state) => { stateAuth = state; });
 
     this.inputSubscribe = fromEvent<InputEvent>(inputElement, 'input')
       .pipe(
         map((event) => (event.target as HTMLInputElement).value),
-        filter((value) => value.length >= 3 && stateAuth),
+        filter((value) => value.length >= 3),
         debounceTime(800),
         distinctUntilChanged(),
         tap((query) => {
@@ -53,9 +51,5 @@ export default class InputSearchComponent implements OnInit, AfterViewInit, OnDe
         mergeMap(async (query) => this.api.getCards(query)),
       )
       .subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.inputSubscribe.unsubscribe();
   }
 }
