@@ -7,6 +7,7 @@
       [formControl]="emailFormControl"
       [(ngModel)]="authState.email"
       placeholder="Ex. pat@gmail.com"
+      (input)="changeValidStatus()"
     />
     <mat-error
       *ngIf="

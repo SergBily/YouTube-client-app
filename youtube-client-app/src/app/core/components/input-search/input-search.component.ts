@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  Component, ElementRef, OnDestroy, OnInit, ViewChild,
+  Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -25,10 +25,13 @@ export default class InputSearchComponent implements OnInit, AfterViewInit, OnDe
     private api: ApiService,
     private router: Router,
     private stateAuth: AuthStateService,
+    private renderer: Renderer2,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  protected clearSearch(): void {
+    this.renderer.setValue(this.inputSearch.nativeElement, '');
   }
 
   ngAfterViewInit(): void {

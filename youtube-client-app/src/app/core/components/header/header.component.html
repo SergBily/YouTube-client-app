@@ -3,7 +3,7 @@
     <div class="search__container">
       <img class="logo" src="assets/svg/logo.svg" alt="sprite-main" />
       <app-input-search></app-input-search>
-      <button class="btn__settings" (click)="areOpenSettings = !areOpenSettings">
+      <button class="btn__settings" (click)="isSettingsOpen = !isSettingsOpen">
         <svg-icon-sprite
           [src]="'settings'"
           [title]="'settings'"
@@ -33,4 +33,4 @@
     </svg>
   </header>
 </div>
-<app-sort *ngIf="areOpenSettings"></app-sort>
+<app-sort *ngIf="isSettingsOpen"></app-sort>

@@ -9,7 +9,7 @@
       placeholder="What are you want to find out?"
     />
     <ng-container *ngIf="search.value">
-      <button class="button" (click)="search.value = ''">
+      <button class="button" (click)="clearSearch()">
         <mat-icon>close</mat-icon>
       </button>
     </ng-container>

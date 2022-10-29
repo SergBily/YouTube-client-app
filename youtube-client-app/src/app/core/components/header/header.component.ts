@@ -10,7 +10,7 @@ import {
 export default class HeaderComponent implements OnInit {
   loginName = 'Your Name';
 
-  areOpenSettings = false;
+  isSettingsOpen = false;
 
   constructor() { }
 

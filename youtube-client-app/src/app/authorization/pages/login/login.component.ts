@@ -10,6 +10,12 @@ import AuthStateService from '../../services/login/auth-state.service';
 export default class LoginComponent implements OnInit {
   curQuery!: string | null;
 
+  isAccess = false;
+
+  isValidPassword!: boolean;
+
+  isValidEmail!: boolean;
+
   constructor(public authState: AuthStateService, public api: ApiService) { }
 
   ngOnInit(): void {
@@ -18,5 +24,15 @@ export default class LoginComponent implements OnInit {
 
   removeQuery(): void {
     localStorage.removeItem('currentQuery');
+  }
+
+  toggleAccess(input: any): void {
+    if (input.nameInput === 'email') {
+      this.isValidEmail = input.isValid;
+    } else {
+      this.isValidPassword = input.isValid;
+    }
+
+    this.isAccess = this.isValidEmail && this.isValidPassword;
   }
 }
