@@ -9,7 +9,7 @@
       placeholder="What are you want to find out?"
     />
     <ng-container *ngIf="value">
-      <button class="button" (click)="value = ''">
+      <button class="button" (click)="clearSearch()">
         <mat-icon>close</mat-icon>
       </button>
     </ng-container>
@@ -19,7 +19,7 @@
     mat-raised-button
     routerLink="/youtube/main/search"
     [queryParams]="{ req: value }"
-    (click)="getResult(value)"
+    (click)="getResult()"
   >
     search
   </button>

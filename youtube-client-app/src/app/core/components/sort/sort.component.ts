@@ -34,22 +34,18 @@ export default class SortComponent implements OnInit {
   }
 
   protected sortingControl(kindOfSorting: string): void {
-    switch (kindOfSorting) {
-      case 'data':
-        this.isArrowData = !this.isArrowData;
-        this.isOpenSortData = true;
-        this.isOpenSortCount = false;
-        this.isArrowCount = false;
-        this.sortService.sort(this.isArrowData ? 'dataUp' : 'dataDown');
-        break;
-
-      default:
-        this.isArrowCount = !this.isArrowCount;
-        this.isOpenSortCount = true;
-        this.isOpenSortData = false;
-        this.isArrowData = false;
-        this.sortService.sort(this.isArrowCount ? 'countUp' : 'countDown');
-        break;
+    if (kindOfSorting === 'data') {
+      this.isArrowData = !this.isArrowData;
+      this.isOpenSortData = true;
+      this.isOpenSortCount = false;
+      this.isArrowCount = false;
+      this.sortService.sort(this.isArrowData ? 'dataUp' : 'dataDown');
+    } else {
+      this.isArrowCount = !this.isArrowCount;
+      this.isOpenSortCount = true;
+      this.isOpenSortData = false;
+      this.isArrowData = false;
+      this.sortService.sort(this.isArrowCount ? 'countUp' : 'countDown');
     }
   }
 }

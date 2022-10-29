@@ -15,8 +15,13 @@
   .btn__login {
     @include wh(125px, 30px);
     @include flex($justify-content: center);
-    background-color: $btnMain;
+    background-color: rgba(47, 128, 237, 0.3);
     color: $white;
+    cursor: pointer;
+  }
+
+  .login__status {
+    background-color: $btnMain;
   }
 
     .contatiner__btn {

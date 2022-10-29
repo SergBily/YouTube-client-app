@@ -12,20 +12,18 @@ import ApiService from '../../services/api/api.service';
 export default class InputSearchComponent implements OnInit {
   value!: string;
 
-  isEmptyString = true;
-
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  protected clearSearch(): void {
+    this.value = '';
   }
 
-  protected getResult(value: string): void {
-    this.isEmptyString = value.trim() ? !this.isEmptyString : this.isEmptyString;
-
-    if (!this.isEmptyString) {
+  protected getResult(): void {
+    if (this.value.trim()) {
       this.api.getCards();
-      this.value = '';
+      this.clearSearch();
     }
   }
 }

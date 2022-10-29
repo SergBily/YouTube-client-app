@@ -1,13 +1,15 @@
 <div class="container" *ngIf="!login; else logout">
   <h1 class="title">Login</h1>
-  <app-input-email></app-input-email>
-  <app-input-password></app-input-password>
+  <app-input-email (email)="toggleAccess($event)"></app-input-email>
+  <app-input-password (password)="toggleAccess($event)"></app-input-password>
   <div class="contatiner__btn">
     <a>Registration</a>
     <button
       routerLink="/youtube/main"
-      (click)="loginService.login()"
       class="btn__login"
+      [ngClass]="{ login__status: isAccess }"
+      (click)="loginService.login()"
+      [disabled]="!isAccess"
       mat-raised-button
     >
       Login
@@ -21,7 +23,7 @@
       <button
         routerLink=""
         class="btn__logout"
-        (click)="loginService.logout()"
+        (click)="runLogout()"
         mat-raised-button
       >
         Logout

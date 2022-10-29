@@ -5,8 +5,8 @@
       type="email"
       matInput
       [formControl]="emailFormControl"
-      [(ngModel)]="loginService.email"
       placeholder="Ex. pat@gmail.com"
+      (input)="changeValidStatus()"
     />
     <mat-error
       *ngIf="
